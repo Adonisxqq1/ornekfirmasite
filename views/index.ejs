@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title><%= data.companyName %> | Servis ve Transfer</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="nav"><a class="brand" href="#"><span>Ö</span><%= data.companyName %></a><nav><a href="#hakkimizda">Hakkımızda</a><a href="#hizmetler">Hizmetler</a><a href="#iletisim">İletişim</a><a class="nav-cta" href="https://wa.me/<%= data.contact.whatsapp %>">WhatsApp</a></nav></header>
+<main>
+<section class="hero" style="background-image:linear-gradient(90deg,rgba(10,20,34,.86),rgba(10,20,34,.28)),url('<%= data.hero.image %>')">
+  <div class="hero-inner"><span class="eyebrow">GÜVENLİ • ZAMANINDA • KONFORLU</span><h1><%= data.hero.title %></h1><p><%= data.hero.subtitle %></p><div class="hero-actions"><a class="btn primary" href="#iletisim">Teklif Al</a><a class="btn ghost" href="#hizmetler">Hizmetleri İncele</a></div></div>
+</section>
+<section class="trust"><div><b>7/24</b><span>Destek</span></div><div><b>Güvenli</b><span>Taşımacılık</span></div><div><b>Zamanında</b><span>Planlama</span></div><div><b>Konforlu</b><span>Araçlar</span></div></section>
+<section id="hakkimizda" class="section about"><div><span class="eyebrow dark">BİZ KİMİZ?</span><h2><%= data.about.title %></h2><p><%= data.about.text %></p><a class="text-link" href="#iletisim">Bizimle iletişime geç →</a></div><div class="about-card"><span>ÖF</span><h3><%= data.companyName %></h3><p>Her yolculukta güven, düzen ve profesyonellik.</p></div></section>
+<section id="hizmetler" class="section services"><div class="section-title"><div><span class="eyebrow dark">HİZMETLERİMİZ</span><h2>İhtiyacınıza uygun ulaşım çözümleri</h2></div><p>Kurumsal ve bireysel ihtiyaçlara göre esnek servis ve transfer seçenekleri sunuyoruz.</p></div><div class="grid">
+<% data.services.forEach((s, i) => { %><article class="service-card"><img src="<%= s.image %>" alt="<%= s.title %>"><div><span>0<%= i+1 %></span><h3><%= s.title %></h3><p><%= s.text %></p></div></article><% }) %>
+</div></section>
+<section class="cta"><div><span class="eyebrow">SERVİS İHTİYACINIZ MI VAR?</span><h2>Size özel güzergâh ve fiyat planı oluşturalım.</h2></div><a class="btn light" href="#iletisim">Ücretsiz Teklif Al</a></section>
+<section id="iletisim" class="section contact"><div><span class="eyebrow dark">İLETİŞİM</span><h2>Birlikte planlayalım</h2><p>Servis güzergâhınız, kişi sayısı ve tarih bilgilerini paylaşın; size uygun çözümü oluşturalım.</p><ul><li><b>Telefon</b><a href="tel:<%= data.contact.phone.replace(/\s/g,'') %>"><%= data.contact.phone %></a></li><li><b>E-posta</b><a href="mailto:<%= data.contact.email %>"><%= data.contact.email %></a></li><li><b>Adres</b><span><%= data.contact.address %></span></li></ul></div><form method="post" action="/contact" class="contact-form"><input name="name" placeholder="Ad Soyad" required><input name="phone" placeholder="Telefon" required><input name="email" type="email" placeholder="E-posta"><textarea name="message" placeholder="Nasıl bir servis hizmetine ihtiyacınız var?" rows="5" required></textarea><button class="btn primary" type="submit">Mesaj Gönder</button></form></section>
+</main>
+<footer><div class="brand"><span>Ö</span><%= data.companyName %></div><p>© <%= new Date().getFullYear() %> <%= data.companyName %>. Tüm hakları saklıdır.</p><a href="/admin/login">Yönetim</a></footer>
+</body></html>

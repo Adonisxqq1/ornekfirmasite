@@ -1,0 +1,23 @@
+{
+  "companyName": "Örnek Firma",
+  "hero": {
+    "title": "Güvenli ve Konforlu Servis Çözümleri",
+    "subtitle": "Personel, öğrenci ve özel transfer ihtiyaçlarınız için zamanında, güvenilir ve profesyonel ulaşım hizmeti.",
+    "image": "/uploads/hero.svg"
+  },
+  "about": {
+    "title": "Yolculuğunuz Bizimle Güvende",
+    "text": "Örnek Firma olarak deneyimli sürücülerimiz ve düzenli bakımları yapılan araçlarımızla kurumsal ve bireysel ulaşım ihtiyaçlarına çözüm sunuyoruz. Dakiklik, güvenlik ve müşteri memnuniyeti önceliğimizdir."
+  },
+  "services": [
+    {"title":"Personel Servisi","text":"Şirket çalışanlarınız için planlı, güvenli ve zamanında personel taşımacılığı.","image":"/uploads/personel.svg"},
+    {"title":"Öğrenci Servisi","text":"Öğrenciler için güvenlik ve düzeni ön planda tutan servis hizmeti.","image":"/uploads/ogrenci.svg"},
+    {"title":"VIP Transfer","text":"Havalimanı, organizasyon ve özel yolculuklar için konforlu transfer çözümleri.","image":"/uploads/vip.svg"}
+  ],
+  "contact": {
+    "phone": "+90 555 555 55 55",
+    "email": "info@ornekfirma.com",
+    "address": "İstanbul, Türkiye",
+    "whatsapp": "905555555555"
+  }
+}
