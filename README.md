@@ -1,34 +1,27 @@
-# Örnek Firma — Servis Hizmetleri Sitesi
+# Örnek Firma Web Sitesi v2
 
-## Kurulum
-1. Bilgisayarda Node.js 18+ kurulu olsun.
-2. Terminalde proje klasörüne girin.
-3. `npm install`
-4. `npm start`
-5. Site: http://localhost:3000
-6. Yönetim: http://localhost:3000/admin
+## Çalıştırma
+1. `npm install`
+2. `npm start`
+3. Site: http://localhost:3000
+4. Admin: http://localhost:3000/admin
 
-## İlk admin girişi
+Varsayılan giriş:
 - Kullanıcı adı: `admin`
 - Şifre: `admin123`
 
-Canlıya almadan önce mutlaka değiştirin.
+## Render
+Build Command: `npm install`
+Start Command: `npm start`
 
-## Güvenli admin ayarı
-Yeni şifre için bcrypt hash üretin:
-`node -e "console.log(require('bcryptjs').hashSync('YENI-SIFRENIZ',10))"`
-
-Sonra ortam değişkenleri:
+Canlı kullanımda Render Environment bölümüne şunları ekleyin:
 - `ADMIN_USER`
-- `ADMIN_PASS_HASH`
+- `ADMIN_PASS`
 - `SESSION_SECRET`
 
-## Panelden değiştirilebilenler
-- Firma adı
-- Ana slider başlığı, açıklaması ve görseli
-- Hakkımızda başlığı/metni
-- Telefon, e-posta, adres, WhatsApp
-- 3 hizmet kartının başlık, açıklama ve görselleri
-
-## Not
-Bu sürüm MVP'dir. İletişim formu şu anda e-posta göndermez; görsel olarak çalışır ve ana sayfaya geri döner. Sonraki sürümde mesajları veritabanına kaydetme/e-posta gönderme eklenebilir.
+## Bu sürümde düzeltildi
+- Admin girişinden sonra `/admin/dashboard.html` rotası sunucuda açıkça tanımlandı.
+- Bilinmeyen site yollarına ana sayfa fallback eklendi.
+- Açılış, scroll reveal, kart hover, buton ve menü animasyonları eklendi.
+- `prefers-reduced-motion` desteği eklendi.
+- Admin panelinden ana görsel ve hizmet görselleri yüklenebilir.

@@ -1,101 +1,106 @@
-const express = require('express');
-const session = require('express-session');
-const multer = require('multer');
-const bcrypt = require('bcryptjs');
-const fs = require('fs');
-const path = require('path');
+const express = require("express");
+const session = require("express-session");
+const multer = require("multer");
+const fs = require("fs");
+const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const ROOT = path.join(__dirname, '..');
-const DATA_FILE = path.join(ROOT, 'data', 'content.json');
-const UPLOAD_DIR = path.join(ROOT, 'public', 'uploads');
+const DATA_FILE = path.join(__dirname, "data", "content.json");
+const UPLOAD_DIR = path.join(__dirname, "public", "uploads");
 
-const ADMIN_USER = process.env.ADMIN_USER || 'admin';
-const ADMIN_PASS_HASH = process.env.ADMIN_PASS_HASH || bcrypt.hashSync('admin123', 10);
+fs.mkdirSync(UPLOAD_DIR, { recursive: true });
 
-function readContent() {
-  return JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
-}
-function writeContent(data) {
-  fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), 'utf8');
-}
-
-const storage = multer.diskStorage({
-  destination: (_, __, cb) => cb(null, UPLOAD_DIR),
-  filename: (_, file, cb) => {
-    const ext = path.extname(file.originalname).toLowerCase();
-    cb(null, `${Date.now()}-${Math.random().toString(36).slice(2, 8)}${ext}`);
-  }
-});
-const upload = multer({
-  storage,
-  limits: { fileSize: 6 * 1024 * 1024 },
-  fileFilter: (_, file, cb) => {
-    const ok = ['image/jpeg','image/png','image/webp','image/gif','image/svg+xml'].includes(file.mimetype);
-    cb(ok ? null : new Error('Sadece görsel dosyaları yüklenebilir.'), ok);
-  }
-});
-
-app.set('view engine', 'ejs');
-app.set('views', path.join(ROOT, 'views'));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(ROOT, 'public')));
+app.use(express.json());
+app.use(express.static(path.join(__dirname, "public")));
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'change-this-secret-before-production',
+  secret: process.env.SESSION_SECRET || "ornek-firma-demo-secret-change-me",
   resave: false,
   saveUninitialized: false,
-  cookie: { httpOnly: true, sameSite: 'lax', maxAge: 1000 * 60 * 60 * 8 }
+  cookie: { maxAge: 1000 * 60 * 60 * 8 }
 }));
 
-const requireAuth = (req, res, next) => req.session.auth ? next() : res.redirect('/admin/login');
+const upload = multer({ dest: UPLOAD_DIR });
 
-app.get('/', (req, res) => res.render('index', { data: readContent() }));
-app.get('/admin/login', (req, res) => res.render('login', { error: null }));
-app.post('/admin/login', async (req, res) => {
-  const userOk = req.body.username === ADMIN_USER;
-  const passOk = await bcrypt.compare(req.body.password || '', ADMIN_PASS_HASH);
-  if (!userOk || !passOk) return res.status(401).render('login', { error: 'Kullanıcı adı veya şifre hatalı.' });
-  req.session.auth = true;
-  res.redirect('/admin');
-});
-app.post('/admin/logout', requireAuth, (req, res) => req.session.destroy(() => res.redirect('/admin/login')));
-app.get('/admin', requireAuth, (req, res) => res.render('admin', { data: readContent(), saved: req.query.saved === '1' }));
+function getContent() {
+  return JSON.parse(fs.readFileSync(DATA_FILE, "utf8"));
+}
+function saveContent(data) {
+  fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), "utf8");
+}
+function auth(req, res, next) {
+  if (req.session && req.session.isAdmin) return next();
+  return res.redirect("/admin");
+}
 
-app.post('/admin/general', requireAuth, upload.single('heroImage'), (req, res) => {
-  const data = readContent();
-  data.companyName = req.body.companyName || data.companyName;
-  data.hero.title = req.body.heroTitle || '';
-  data.hero.subtitle = req.body.heroSubtitle || '';
-  data.about.title = req.body.aboutTitle || '';
-  data.about.text = req.body.aboutText || '';
-  data.contact.phone = req.body.phone || '';
-  data.contact.email = req.body.email || '';
-  data.contact.address = req.body.address || '';
-  data.contact.whatsapp = (req.body.whatsapp || '').replace(/\D/g, '');
-  if (req.file) data.hero.image = `/uploads/${req.file.filename}`;
-  writeContent(data);
-  res.redirect('/admin?saved=1');
+app.get("/api/content", (req, res) => res.json(getContent()));
+
+app.get("/admin", (req, res) => {
+  if (req.session && req.session.isAdmin) return res.redirect("/admin/dashboard.html");
+  res.sendFile(path.join(__dirname, "public", "admin-login.html"));
 });
 
-app.post('/admin/service/:index', requireAuth, upload.single('serviceImage'), (req, res) => {
-  const data = readContent();
-  const i = Number(req.params.index);
-  if (!Number.isInteger(i) || !data.services[i]) return res.status(404).send('Hizmet bulunamadı.');
-  data.services[i].title = req.body.title || '';
-  data.services[i].text = req.body.text || '';
-  if (req.file) data.services[i].image = `/uploads/${req.file.filename}`;
-  writeContent(data);
-  res.redirect('/admin?saved=1');
+app.post("/admin/login", (req, res) => {
+  const username = process.env.ADMIN_USER || "admin";
+  const password = process.env.ADMIN_PASS || "admin123";
+  if (req.body.username === username && req.body.password === password) {
+    req.session.isAdmin = true;
+    return res.redirect("/admin/dashboard.html");
+  }
+  return res.redirect("/admin?error=1");
 });
 
-app.post('/contact', (req, res) => {
-  res.redirect('/?message=sent#iletisim');
+app.get("/admin/dashboard.html", auth, (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "admin-dashboard.html"));
 });
 
-app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(400).send(err.message || 'Bir hata oluştu.');
+app.post("/admin/save", auth, upload.fields([
+  { name: "heroImage", maxCount: 1 },
+  { name: "serviceImage0", maxCount: 1 },
+  { name: "serviceImage1", maxCount: 1 },
+  { name: "serviceImage2", maxCount: 1 }
+]), (req, res) => {
+  const data = getContent();
+  const b = req.body;
+
+  data.companyName = b.companyName || data.companyName;
+  data.heroTitle = b.heroTitle || "";
+  data.heroText = b.heroText || "";
+  data.aboutTitle = b.aboutTitle || "";
+  data.aboutText = b.aboutText || "";
+  data.phone = b.phone || "";
+  data.email = b.email || "";
+  data.address = b.address || "";
+  data.whatsapp = b.whatsapp || "";
+
+  if (req.files?.heroImage?.[0]) {
+    data.heroImage = "/uploads/" + req.files.heroImage[0].filename;
+  }
+
+  data.services = [0,1,2].map(i => {
+    const current = data.services[i] || {};
+    const image = req.files?.["serviceImage"+i]?.[0]
+      ? "/uploads/" + req.files["serviceImage"+i][0].filename
+      : current.image || "";
+    return {
+      title: b["serviceTitle"+i] || "",
+      text: b["serviceText"+i] || "",
+      image
+    };
+  });
+
+  saveContent(data);
+  res.redirect("/admin/dashboard.html?saved=1");
 });
 
-app.listen(PORT, () => console.log(`Örnek Firma: http://localhost:${PORT}`));
+app.get("/admin/logout", (req, res) => {
+  req.session.destroy(() => res.redirect("/admin"));
+});
+
+// SPA/friendly fallback: admin dışındaki bilinmeyen GET yollarında ana sayfa gösterilir.
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+app.listen(PORT, "0.0.0.0", () => console.log(`Server running on ${PORT}`));
