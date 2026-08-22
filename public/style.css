@@ -13,3 +13,32 @@
 @keyframes heroIn{to{opacity:1;transform:none}}@keyframes heroZoom{to{transform:scale(1)}}@keyframes floatGlow{50%{transform:translateY(35px) scale(1.06)}}@keyframes bounce{50%{transform:translateY(7px)}}
 @media(max-width:800px){.topbar{height:68px}.menuBtn{display:block}.topbar nav{display:none;position:absolute;top:68px;left:0;right:0;background:#122330;flex-direction:column;padding:22px}.topbar nav.open{display:flex}.hero{min-height:88vh}.hero h1{letter-spacing:-2px}.twoCol,.cards,.stats,.contactGrid{grid-template-columns:1fr}.twoCol{gap:10px}.cards{gap:16px}.section{padding:75px 22px}.cta{margin:0 16px;padding:38px 24px;flex-direction:column;align-items:flex-start}footer{flex-direction:column;padding:28px 22px}.cardImage{height:200px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1!important;transform:none!important}}
+
+
+/* v3 - Logo + İş Başvurusu */
+.brand{display:flex;align-items:center;min-width:120px}
+.brandLogo{display:block;max-width:190px;max-height:48px;width:auto;height:auto;object-fit:contain}
+.footerBrand{display:flex;align-items:center;gap:12px}
+.footerLogo{max-width:150px;max-height:40px;width:auto;height:auto;object-fit:contain}
+.jobSection{background:#fff}
+.jobLayout{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:start}
+.jobIntro{position:sticky;top:115px}
+.jobIntro>p{color:#74818a;font-size:17px;line-height:1.8;max-width:520px}
+.jobNote{margin-top:28px;padding:18px 20px;border:1px solid #e1e7eb;border-radius:12px;display:grid;gap:5px;max-width:420px}
+.jobNote strong{font-size:14px}.jobNote span{font-size:13px;color:#7f8c95}
+.jobForm{padding:32px;background:#f5f7f8;border:1px solid #e3e8eb;border-radius:18px;box-shadow:0 18px 48px rgba(24,43,57,.06)}
+.jobForm label{display:grid;gap:8px;margin-bottom:18px}
+.jobForm label>span{font-size:13px;font-weight:800;color:#3f4c55}
+.jobForm input,.jobForm textarea{width:100%;border:1px solid #d7dfe4;border-radius:10px;background:#fff;padding:13px 14px;font:inherit;color:#17212b;outline:none;transition:border-color .22s,box-shadow .22s,transform .22s}
+.jobForm input:focus,.jobForm textarea:focus{border-color:#6d92aa;box-shadow:0 0 0 4px rgba(65,110,139,.09)}
+.jobForm textarea{resize:vertical;min-height:145px}
+.formGrid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.fileField{padding:17px;border:1px dashed #b9c6ce;border-radius:11px;background:#fff}
+.fileField input{padding:8px;border:0;background:transparent}
+.fileField small{color:#7c8992}
+.jobSubmit{border:0;background:#17384d;color:#fff;cursor:pointer;min-width:190px}
+.jobStatus{margin-bottom:18px;padding:13px 15px;border-radius:10px;font-size:14px;line-height:1.5}
+.jobStatus.success{display:block;background:#e8f7ee;color:#216b42;border:1px solid #cce9d7}
+.jobStatus.error{display:block;background:#fff0f0;color:#943838;border:1px solid #f0cece}
+@media(max-width:900px){.jobLayout{grid-template-columns:1fr;gap:30px}.jobIntro{position:static}}
+@media(max-width:640px){.formGrid{grid-template-columns:1fr}.jobForm{padding:22px 16px}.brandLogo{max-width:145px;max-height:40px}}
