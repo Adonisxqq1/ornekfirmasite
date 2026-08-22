@@ -12,6 +12,8 @@ const UPLOAD_DIR = path.join(__dirname, "public", "uploads");
 
 fs.mkdirSync(UPLOAD_DIR, { recursive: true });
 
+app.set("trust proxy", 1);
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
