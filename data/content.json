@@ -13,17 +13,23 @@
     {
       "title": "Personel Servisi",
       "text": "Çalışanlarınız için planlı, dakik ve konforlu personel taşımacılığı.",
-      "image": ""
+      "image": "",
+      "detailImage": "",
+      "detailText": "Personel taşımacılığı hizmetimiz; işletmelerin çalışanlarını güvenli, planlı ve zamanında iş yerine ulaştırabilmesi için tasarlanmıştır. Güzergâh planlaması, servis saatleri ve araç organizasyonu ihtiyaca göre düzenlenir.\n\nBakımlı araçlarımız ve deneyimli sürücülerimizle çalışanlarınızın günlük ulaşımını konforlu hale getirirken, işletmenizin operasyonel yükünü azaltmayı hedefliyoruz."
     },
     {
       "title": "Öğrenci Servisi",
       "text": "Öğrenciler için güvenlik odaklı ve düzenli okul servisi çözümleri.",
-      "image": ""
+      "image": "",
+      "detailImage": "",
+      "detailText": "Öğrenci servisi hizmetimizde güvenlik, düzen ve zamanında ulaşım önceliğimizdir. Öğrencilerin okul ve ev arasındaki yolculuklarının planlı şekilde gerçekleştirilmesi için güzergâh ve servis saatleri dikkatle oluşturulur.\n\nAraçlarımızın düzenli kontrolleri yapılır ve yolculuk sürecinde konforlu bir servis deneyimi sunulması hedeflenir."
     },
     {
       "title": "VIP Transfer",
       "text": "Havalimanı, özel etkinlik ve bireysel yolculuklar için premium transfer.",
-      "image": ""
+      "image": "",
+      "detailImage": "",
+      "detailText": "VIP transfer hizmetimiz; havalimanı transferleri, özel etkinlikler, iş seyahatleri ve bireysel ulaşım ihtiyaçları için konforlu ve özel bir ulaşım çözümü sunar.\n\nPlanlanan saatte adresten alım, konforlu araç seçenekleri ve profesyonel hizmet anlayışıyla yolculuğunuzun başından sonuna kadar kaliteli bir deneyim sağlamayı amaçlıyoruz."
     }
   ],
   "logo": ""
