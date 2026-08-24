@@ -62,3 +62,8 @@ Not: Render'ın normal dosya sistemi kalıcı değildir. Admin panelinden yükle
 - Üst menüdeki logo masaüstünde belirgin şekilde büyütüldü.
 - Mobil logo boyutu da artırıldı.
 - Header yüksekliği, menü ve hizmet detay sayfası boşlukları yeni logo boyutuna göre dengelendi.
+
+## FINAL temiz paket
+Bu paket doğrudan Render/Node.js yayını için temizlenmiştir.
+Kullanılan yapı yalnızca `server.js`, `package.json`, `data/` ve `public/` dizinleridir.
+Hizmet detay sayfaları, admin panelinden hizmet detay içeriği/görsel yönetimi ve büyütülmüş logo dahildir.
