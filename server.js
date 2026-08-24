@@ -109,7 +109,10 @@ app.post("/admin/save", auth, siteUpload.fields([
   { name: "heroImage", maxCount: 1 },
   { name: "serviceImage0", maxCount: 1 },
   { name: "serviceImage1", maxCount: 1 },
-  { name: "serviceImage2", maxCount: 1 }
+  { name: "serviceImage2", maxCount: 1 },
+  { name: "serviceDetailImage0", maxCount: 1 },
+  { name: "serviceDetailImage1", maxCount: 1 },
+  { name: "serviceDetailImage2", maxCount: 1 }
 ]), (req, res) => {
   const content = getContent();
   const b = req.body;
@@ -137,10 +140,16 @@ app.post("/admin/save", auth, siteUpload.fields([
       ? "/uploads/" + req.files["serviceImage" + i][0].filename
       : current.image || "";
 
+    const detailImage = req.files?.["serviceDetailImage" + i]?.[0]
+      ? "/uploads/" + req.files["serviceDetailImage" + i][0].filename
+      : current.detailImage || "";
+
     return {
       title: b["serviceTitle" + i] || "",
       text: b["serviceText" + i] || "",
-      image
+      image,
+      detailImage,
+      detailText: b["serviceDetailText" + i] || ""
     };
   });
 
@@ -227,6 +236,17 @@ function escapeHtml(value) {
     "'": "&#39;"
   }[ch]));
 }
+
+app.get("/hizmet/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const content = getContent();
+
+  if (!Number.isInteger(id) || id < 0 || id >= (content.services || []).length) {
+    return res.redirect("/#hizmetler");
+  }
+
+  return res.sendFile(path.join(__dirname, "public", "service-detail.html"));
+});
 
 app.get("/admin/logout", (req, res) => {
   req.session.destroy(() => res.redirect("/admin"));

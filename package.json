@@ -1,6 +1,6 @@
 {
   "name": "ornek-firma-site-v2",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "private": true,
   "description": "Örnek Firma servis hizmetleri web sitesi + yönetim paneli",
   "main": "server.js",

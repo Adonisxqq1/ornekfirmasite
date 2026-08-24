@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Yönetim Paneli</title>
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body class="dashboard">
+<aside>
+  <div class="adminBrandWrap"><img id="adminLogoPreview" class="adminLogoPreview" alt="" hidden><strong id="adminBrandText">Örnek Firma</strong></div>
+  <span>Yönetim Paneli</span>
+  <a href="/">Siteyi Görüntüle</a>
+  <a href="/admin/logout">Çıkış Yap</a>
+</aside>
+
+<main>
+  <div class="dashHead">
+    <div><span>YÖNETİM</span><h1>Site İçerikleri</h1></div>
+    <div class="saved" id="saved">Değişiklikler kaydedildi ✓</div>
+  </div>
+
+  <form id="contentForm" action="/admin/save" method="post" enctype="multipart/form-data">
+    <section>
+      <h2>Logo ve Genel Bilgiler</h2>
+      <div class="adminHelp">Logo yüklediğinizde web sitesinin üst menüsünde firma adı yerine logo gösterilir.</div>
+      <label>Logo<input type="file" name="logo" accept="image/png,image/jpeg,image/webp,image/svg+xml"></label>
+      <label>Firma adı<input name="companyName" id="companyName"></label>
+    </section>
+
+    <section>
+      <h2>Ana Görsel / Slider</h2>
+      <label>Başlık<input name="heroTitle" id="heroTitle"></label>
+      <label>Açıklama<textarea name="heroText" id="heroText"></textarea></label>
+      <label>Ana görsel<input type="file" name="heroImage" accept="image/*"></label>
+    </section>
+
+    <section>
+      <h2>Hakkımızda</h2>
+      <label>Başlık<input name="aboutTitle" id="aboutTitle"></label>
+      <label>Metin<textarea name="aboutText" id="aboutText"></textarea></label>
+    </section>
+
+    <section><h2>Hizmetler</h2><div id="services"></div></section>
+
+    <section>
+      <h2>İletişim</h2>
+      <div class="grid">
+        <label>Telefon<input name="phone" id="phone"></label>
+        <label>E-posta<input name="email" id="email"></label>
+        <label>Adres<input name="address" id="address"></label>
+        <label>WhatsApp<input name="whatsapp" id="whatsapp"></label>
+      </div>
+      <div class="adminHelp">İş başvurularının hangi e-postaya geleceğini Render'daki <strong>JOB_RECIPIENT</strong> ayarı belirler. Bu ayar yoksa buradaki e-posta adresi kullanılır.</div>
+    </section>
+
+    <button class="saveBtn">Değişiklikleri Kaydet</button>
+  </form>
+</main>
+<script src="/admin.js"></script>
+</body>
+</html>

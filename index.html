@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Örnek Firma servis ve transfer hizmetleri">
+  <title>Örnek Firma | Servis Hizmetleri</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#anasayfa" aria-label="Ana sayfa">
+    <img id="brandLogo" class="brandLogo" alt="" hidden>
+    <span id="brandName">Örnek Firma</span>
+  </a>
+  <button class="menuBtn" aria-label="Menüyü aç">☰</button>
+  <nav>
+    <a href="#anasayfa">Anasayfa</a>
+    <a href="#hakkimizda">Hakkımızda</a>
+    <a href="#hizmetler">Hizmetlerimiz</a>
+    <a href="#is-basvurusu">İş Başvurusu</a>
+    <a href="#iletisim">İletişim</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="anasayfa">
+  <div class="heroBackdrop" id="heroBackdrop"></div>
+  <div class="heroGlow"></div>
+  <div class="heroContent hero-enter">
+    <span class="eyebrow">Güven • Konfor • Dakiklik</span>
+    <h1 id="heroTitle">Güvenli ve Konforlu Servis Hizmeti</h1>
+    <p id="heroText"></p>
+    <div class="heroActions">
+      <a class="btn primary" href="#iletisim">Teklif Al</a>
+      <a class="btn ghost" href="#hizmetler">Hizmetleri İncele</a>
+    </div>
+  </div>
+  <a href="#hakkimizda" class="scrollHint" aria-label="Aşağı kaydır">⌄</a>
+</section>
+
+<section class="section reveal" id="hakkimizda">
+  <div class="twoCol">
+    <div><span class="sectionTag">HAKKIMIZDA</span><h2 id="aboutTitle"></h2></div>
+    <p class="lead" id="aboutText"></p>
+  </div>
+  <div class="stats">
+    <div class="stat reveal"><strong>7/24</strong><span>Ulaşılabilirlik</span></div>
+    <div class="stat reveal"><strong>%100</strong><span>Güvenlik Odağı</span></div>
+    <div class="stat reveal"><strong>3+</strong><span>Hizmet Alanı</span></div>
+  </div>
+</section>
+
+<section class="section soft" id="hizmetler">
+  <div class="sectionHead reveal">
+    <span class="sectionTag">HİZMETLERİMİZ</span>
+    <h2>Her yolculuğa uygun çözüm</h2>
+    <p>İhtiyacınıza göre planlanan profesyonel taşımacılık hizmetleri.</p>
+  </div>
+  <div class="cards" id="serviceCards"></div>
+</section>
+
+<section class="section jobSection" id="is-basvurusu">
+  <div class="jobLayout">
+    <div class="jobIntro reveal">
+      <span class="sectionTag">KARİYER</span>
+      <h2>Ekibimize katılmak ister misiniz?</h2>
+      <p>Başvuru formunu doldurun ve CV’nizi ekleyin. Başvurunuz doğrudan insan kaynakları e-posta adresimize iletilsin.</p>
+      <div class="jobNote"><strong>CV formatı</strong><span>PDF, DOC veya DOCX • Maksimum 7 MB</span></div>
+    </div>
+
+    <form class="jobForm reveal" action="/job-application" method="post" enctype="multipart/form-data">
+      <div id="jobStatus" class="jobStatus" hidden></div>
+      <div class="formGrid">
+        <label><span>Ad Soyad *</span><input type="text" name="fullName" required maxlength="150" placeholder="Adınız ve soyadınız"></label>
+        <label><span>Telefon Numarası *</span><input type="tel" name="phone" required maxlength="50" placeholder="05xx xxx xx xx"></label>
+        <label><span>E-posta Adresi *</span><input type="email" name="email" required maxlength="180" placeholder="ornek@mail.com"></label>
+        <label><span>Pozisyon *</span><input type="text" name="position" required maxlength="150" placeholder="Başvurmak istediğiniz pozisyon"></label>
+      </div>
+      <label><span>Kendinizi Tanıtın *</span><textarea name="about" required maxlength="5000" rows="6" placeholder="Deneyiminizden, yetkinliklerinizden ve neden bizimle çalışmak istediğinizden kısaca bahsedin."></textarea></label>
+      <label class="fileField">
+        <span>CV Yükle *</span>
+        <input type="file" name="cv" required accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+        <small>PDF, DOC veya DOCX • En fazla 7 MB</small>
+      </label>
+      <button class="btn jobSubmit" type="submit">Başvuruyu Gönder</button>
+    </form>
+  </div>
+</section>
+
+<section class="cta reveal">
+  <div><span class="sectionTag light">BİZE ULAŞIN</span><h2>Servis ihtiyacınız için hızlıca görüşelim.</h2></div>
+  <a class="btn lightBtn" id="waButton" href="#" target="_blank" rel="noopener">WhatsApp'tan Yaz</a>
+</section>
+
+<section class="section" id="iletisim">
+  <div class="sectionHead reveal"><span class="sectionTag">İLETİŞİM</span><h2>İletişim bilgilerimiz</h2></div>
+  <div class="contactGrid">
+    <div class="contactItem reveal"><span>Telefon</span><strong id="phone"></strong></div>
+    <div class="contactItem reveal"><span>E-posta</span><strong id="email"></strong></div>
+    <div class="contactItem reveal"><span>Adres</span><strong id="address"></strong></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footerBrand"><img id="footerLogo" class="footerLogo" alt="" hidden><strong id="footerCompany">Örnek Firma</strong></div>
+  <span>© 2026 Tüm hakları saklıdır.</span>
+</footer>
+
+<a class="floatingWa" id="floatingWa" href="#" target="_blank" aria-label="WhatsApp">WA</a>
+<script src="/app.js"></script>
+</body>
+</html>
