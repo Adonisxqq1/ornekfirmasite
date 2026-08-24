@@ -1,6 +1,5 @@
-
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#17212b;background:#fff}a{text-decoration:none;color:inherit}
-.topbar{position:fixed;z-index:50;left:0;right:0;top:0;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(22px,5vw,76px);background:rgba(13,23,33,.82);backdrop-filter:blur(16px);color:#fff;border-bottom:1px solid rgba(255,255,255,.09)}
+.topbar{position:fixed;z-index:50;left:0;right:0;top:0;height:88px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(22px,5vw,76px);background:rgba(13,23,33,.82);backdrop-filter:blur(16px);color:#fff;border-bottom:1px solid rgba(255,255,255,.09)}
 .brand{font-size:21px;font-weight:800;letter-spacing:-.4px}.topbar nav{display:flex;gap:28px}.topbar nav a{font-size:14px;opacity:.82;transition:.25s}.topbar nav a:hover{opacity:1;transform:translateY(-1px)}.menuBtn{display:none;background:none;color:#fff;border:0;font-size:24px}
 .hero{min-height:92vh;position:relative;display:flex;align-items:center;overflow:hidden;color:#fff;padding:120px clamp(22px,8vw,130px) 70px;background:linear-gradient(120deg,#0c1822,#1e3446)}
 .heroBackdrop{position:absolute;inset:0;background:radial-gradient(circle at 72% 43%,rgba(71,145,195,.30),transparent 32%),linear-gradient(120deg,rgba(6,17,26,.94),rgba(20,43,60,.65));background-size:cover;background-position:center;transform:scale(1.04);animation:heroZoom 12s ease-out forwards}
@@ -11,13 +10,13 @@
 .cta{margin:0 clamp(22px,5vw,76px);border-radius:20px;background:linear-gradient(115deg,#132b3d,#28516a);color:#fff;padding:55px clamp(28px,5vw,66px);display:flex;justify-content:space-between;align-items:center;gap:32px;box-shadow:0 24px 65px rgba(21,44,61,.18)}.cta h2{max-width:700px}.sectionTag.light{color:#b7ddf3}.lightBtn{background:#fff;color:#173043;white-space:nowrap}.contactGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.contactItem{padding:28px 0;border-top:1px solid #dce2e6}.contactItem span{display:block;color:#82909a;font-size:13px;margin-bottom:9px}.contactItem strong{font-size:18px}footer{padding:30px clamp(22px,8vw,130px);background:#0e1c27;color:#fff;display:flex;justify-content:space-between;gap:20px;font-size:13px}footer span{opacity:.55}.floatingWa{position:fixed;right:22px;bottom:22px;width:55px;height:55px;border-radius:50%;background:#1d9d5a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;box-shadow:0 10px 28px rgba(0,0,0,.22);z-index:45;transition:transform .25s}.floatingWa:hover{transform:scale(1.08)}
 .reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.75,.2,1)}.reveal.visible{opacity:1;transform:none}
 @keyframes heroIn{to{opacity:1;transform:none}}@keyframes heroZoom{to{transform:scale(1)}}@keyframes floatGlow{50%{transform:translateY(35px) scale(1.06)}}@keyframes bounce{50%{transform:translateY(7px)}}
-@media(max-width:800px){.topbar{height:68px}.menuBtn{display:block}.topbar nav{display:none;position:absolute;top:68px;left:0;right:0;background:#122330;flex-direction:column;padding:22px}.topbar nav.open{display:flex}.hero{min-height:88vh}.hero h1{letter-spacing:-2px}.twoCol,.cards,.stats,.contactGrid{grid-template-columns:1fr}.twoCol{gap:10px}.cards{gap:16px}.section{padding:75px 22px}.cta{margin:0 16px;padding:38px 24px;flex-direction:column;align-items:flex-start}footer{flex-direction:column;padding:28px 22px}.cardImage{height:200px}}
+@media(max-width:800px){.topbar{height:76px}.menuBtn{display:block}.topbar nav{display:none;position:absolute;top:76px;left:0;right:0;background:#122330;flex-direction:column;padding:22px}.topbar nav.open{display:flex}.hero{min-height:88vh}.hero h1{letter-spacing:-2px}.twoCol,.cards,.stats,.contactGrid{grid-template-columns:1fr}.twoCol{gap:10px}.cards{gap:16px}.section{padding:75px 22px}.cta{margin:0 16px;padding:38px 24px;flex-direction:column;align-items:flex-start}footer{flex-direction:column;padding:28px 22px}.cardImage{height:200px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1!important;transform:none!important}}
 
 
 /* v3 - Logo + İş Başvurusu */
 .brand{display:flex;align-items:center;min-width:120px}
-.brandLogo{display:block;max-width:190px;max-height:48px;width:auto;height:auto;object-fit:contain}
+.brandLogo{display:block;max-width:260px;max-height:68px;width:auto;height:auto;object-fit:contain}
 .footerBrand{display:flex;align-items:center;gap:12px}
 .footerLogo{max-width:150px;max-height:40px;width:auto;height:auto;object-fit:contain}
 .jobSection{background:#fff}
@@ -41,7 +40,7 @@
 .jobStatus.success{display:block;background:#e8f7ee;color:#216b42;border:1px solid #cce9d7}
 .jobStatus.error{display:block;background:#fff0f0;color:#943838;border:1px solid #f0cece}
 @media(max-width:900px){.jobLayout{grid-template-columns:1fr;gap:30px}.jobIntro{position:static}}
-@media(max-width:640px){.formGrid{grid-template-columns:1fr}.jobForm{padding:22px 16px}.brandLogo{max-width:145px;max-height:40px}}
+@media(max-width:640px){.formGrid{grid-template-columns:1fr}.jobForm{padding:22px 16px}.brandLogo{max-width:185px;max-height:52px}}
 
 /* v4 - Tıklanabilir hizmet kartları ve hizmet detay sayfası */
 .serviceCardLink{display:block;color:inherit;cursor:pointer}
@@ -51,7 +50,7 @@
 .serviceCardLink:hover .cardMore b{transform:translateX(5px)}
 
 .detailPageBody{background:#fff}
-.serviceDetailMain{padding-top:76px}
+.serviceDetailMain{padding-top:88px}
 .detailHero{position:relative;min-height:610px;display:flex;align-items:flex-end;overflow:hidden;background:#142a39;color:#fff}
 .detailHeroImage{position:absolute;inset:0;background:linear-gradient(135deg,#24475d,#173042);background-size:cover;background-position:center;transform:scale(1.025);animation:heroZoom 8s ease-out forwards}
 .detailHeroShade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,16,24,.18),rgba(7,20,29,.86))}
@@ -79,7 +78,7 @@
   .detailContact{position:static}
 }
 @media(max-width:600px){
-  .serviceDetailMain{padding-top:68px}
+  .serviceDetailMain{padding-top:76px}
   .detailHero{min-height:500px}
   .detailHeroContent{width:calc(100% - 36px);padding-bottom:48px}
   .detailHeroContent h1{letter-spacing:-2px}
