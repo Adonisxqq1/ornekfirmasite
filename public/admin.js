@@ -19,10 +19,33 @@ async function init(){
   }
 
   document.getElementById('services').innerHTML=(d.services||[]).slice(0,3).map((s,i)=>`
-    <div class="serviceEdit">
-      <label>Hizmet ${i+1} başlığı<input name="serviceTitle${i}" value="${esc(s.title)}"></label>
-      <label>Görsel<input type="file" name="serviceImage${i}" accept="image/*"></label>
-      <label style="grid-column:1/-1">Açıklama<textarea name="serviceText${i}">${esc(s.text)}</textarea></label>
+    <div class="serviceEdit serviceEditDetailed">
+      <div class="serviceEditTitle">Hizmet ${i+1}</div>
+
+      <label>Kart Başlığı
+        <input name="serviceTitle${i}" value="${esc(s.title)}">
+      </label>
+
+      <label>Kart Görseli
+        <input type="file" name="serviceImage${i}" accept="image/*">
+      </label>
+
+      <label style="grid-column:1/-1">Karttaki Kısa Açıklama
+        <textarea name="serviceText${i}">${esc(s.text)}</textarea>
+      </label>
+
+      <div class="detailAdminDivider">Hizmet Detay Sayfası</div>
+
+      <label style="grid-column:1/-1">Detay Sayfası Üst Görseli
+        <input type="file" name="serviceDetailImage${i}" accept="image/*">
+        <small class="fieldHint">Yeni görsel seçmezsen mevcut detay görseli korunur.</small>
+      </label>
+
+      <label style="grid-column:1/-1">Detay Sayfası Açıklaması
+        <textarea class="detailTextarea" name="serviceDetailText${i}">${esc(s.detailText||'')}</textarea>
+      </label>
+
+      <a class="previewDetailLink" href="/hizmet/${i}" target="_blank">Detay sayfasını görüntüle ↗</a>
     </div>`).join('');
 
   if(new URLSearchParams(location.search).get('saved')==='1'){

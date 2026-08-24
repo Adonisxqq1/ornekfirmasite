@@ -4,3 +4,11 @@
 .adminBrandWrap{display:flex;align-items:center;min-height:48px}
 .adminLogoPreview{display:block;max-width:180px;max-height:54px;width:auto;height:auto;object-fit:contain}
 .adminHelp{margin:-5px 0 18px;padding:12px 14px;background:#f4f7f8;border-left:3px solid #52778e;color:#61717c;font-size:13px;line-height:1.6;border-radius:6px}
+
+/* v4 - Hizmet detay yönetimi */
+.serviceEditDetailed{position:relative;padding-top:52px}
+.serviceEditTitle{position:absolute;left:18px;top:17px;font-size:14px;font-weight:900;color:#17384d}
+.detailAdminDivider{grid-column:1/-1;border-top:1px solid #dce3e7;padding-top:18px;margin-top:4px;font-size:13px;font-weight:900;letter-spacing:.5px;color:#526571}
+.detailTextarea{min-height:180px!important}
+.fieldHint{font-size:11px;color:#7b8992;font-weight:500}
+.previewDetailLink{grid-column:1/-1;display:inline-flex;width:max-content;color:#254f69;font-size:13px;font-weight:800;padding:9px 12px;border-radius:8px;background:#eaf1f5}

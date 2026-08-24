@@ -43,10 +43,14 @@ async function loadSite(){
   byId('floatingWa').href=wa;
 
   byId('serviceCards').innerHTML=d.services.map((s,i)=>`
-    <article class="serviceCard reveal" style="transition-delay:${i*80}ms">
+    <a class="serviceCard serviceCardLink reveal" href="/hizmet/${i}" style="transition-delay:${i*80}ms" aria-label="${escapeHtml(s.title)} detaylarını görüntüle">
       <div class="cardImage" ${s.image?`style="background-image:url('${s.image}')"`:''}></div>
-      <div class="cardBody"><h3>${escapeHtml(s.title)}</h3><p>${escapeHtml(s.text)}</p></div>
-    </article>`).join('');
+      <div class="cardBody">
+        <h3>${escapeHtml(s.title)}</h3>
+        <p>${escapeHtml(s.text)}</p>
+        <span class="cardMore">Detayları İncele <b>→</b></span>
+      </div>
+    </a>`).join('');
 
   initJobStatus();
   initReveal();

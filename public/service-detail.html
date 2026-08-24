@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Hizmet detayları">
+  <title>Hizmet Detayı | Örnek Firma</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="detailPageBody">
+<header class="topbar">
+  <a class="brand" href="/" aria-label="Ana sayfa">
+    <img id="brandLogo" class="brandLogo" alt="" hidden>
+    <span id="brandName">Örnek Firma</span>
+  </a>
+  <button class="menuBtn" aria-label="Menüyü aç">☰</button>
+  <nav>
+    <a href="/">Anasayfa</a>
+    <a href="/#hakkimizda">Hakkımızda</a>
+    <a href="/#hizmetler">Hizmetlerimiz</a>
+    <a href="/#is-basvurusu">İş Başvurusu</a>
+    <a href="/#iletisim">İletişim</a>
+  </nav>
+</header>
+
+<main class="serviceDetailMain">
+  <section class="detailHero reveal visible">
+    <div id="detailImage" class="detailHeroImage"></div>
+    <div class="detailHeroShade"></div>
+    <div class="detailHeroContent">
+      <a class="detailBack" href="/#hizmetler">← Tüm Hizmetler</a>
+      <span class="eyebrow">HİZMET DETAYI</span>
+      <h1 id="detailTitle">Hizmet</h1>
+      <p id="detailShort"></p>
+    </div>
+  </section>
+
+  <section class="detailContentSection">
+    <article class="detailArticle reveal">
+      <span class="sectionTag">HİZMET HAKKINDA</span>
+      <h2 id="detailContentTitle">Hizmet Detayı</h2>
+      <div id="detailText" class="detailText"></div>
+    </article>
+
+    <aside class="detailContact reveal">
+      <span class="sectionTag">BİLGİ ALIN</span>
+      <h3>Bu hizmet hakkında görüşelim.</h3>
+      <p>Detaylı bilgi, fiyat ve planlama için bizimle iletişime geçebilirsiniz.</p>
+      <a class="btn detailWaBtn" id="detailWa" target="_blank" rel="noopener">WhatsApp'tan Yaz</a>
+      <a class="detailPhone" id="detailPhoneLink" href="#"><span>Telefon</span><strong id="detailPhone"></strong></a>
+    </aside>
+  </section>
+</main>
+
+<footer>
+  <div class="footerBrand">
+    <img id="footerLogo" class="footerLogo" alt="" hidden>
+    <strong id="footerCompany">Örnek Firma</strong>
+  </div>
+  <span>© 2026 Tüm hakları saklıdır.</span>
+</footer>
+
+<script src="/service-detail.js"></script>
+</body>
+</html>

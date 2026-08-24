@@ -42,3 +42,46 @@
 .jobStatus.error{display:block;background:#fff0f0;color:#943838;border:1px solid #f0cece}
 @media(max-width:900px){.jobLayout{grid-template-columns:1fr;gap:30px}.jobIntro{position:static}}
 @media(max-width:640px){.formGrid{grid-template-columns:1fr}.jobForm{padding:22px 16px}.brandLogo{max-width:145px;max-height:40px}}
+
+/* v4 - Tıklanabilir hizmet kartları ve hizmet detay sayfası */
+.serviceCardLink{display:block;color:inherit;cursor:pointer}
+.serviceCardLink .cardBody{position:relative;padding-bottom:28px}
+.cardMore{display:flex;align-items:center;gap:8px;margin-top:20px;font-size:13px;font-weight:850;color:#355f78}
+.cardMore b{font-size:17px;transition:transform .25s ease}
+.serviceCardLink:hover .cardMore b{transform:translateX(5px)}
+
+.detailPageBody{background:#fff}
+.serviceDetailMain{padding-top:76px}
+.detailHero{position:relative;min-height:610px;display:flex;align-items:flex-end;overflow:hidden;background:#142a39;color:#fff}
+.detailHeroImage{position:absolute;inset:0;background:linear-gradient(135deg,#24475d,#173042);background-size:cover;background-position:center;transform:scale(1.025);animation:heroZoom 8s ease-out forwards}
+.detailHeroShade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,16,24,.18),rgba(7,20,29,.86))}
+.detailHeroContent{position:relative;z-index:2;width:min(1180px,calc(100% - 44px));margin:0 auto;padding:130px 0 72px}
+.detailHeroContent h1{font-size:clamp(46px,6vw,78px);line-height:1.03;letter-spacing:-3px;margin:5px 0 18px;max-width:900px}
+.detailHeroContent p{max-width:760px;font-size:18px;line-height:1.7;color:rgba(255,255,255,.8)}
+.detailBack{display:inline-flex;margin-bottom:28px;font-size:13px;font-weight:800;color:rgba(255,255,255,.8);transition:transform .2s,color .2s}
+.detailBack:hover{transform:translateX(-4px);color:#fff}
+
+.detailContentSection{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:80px;width:min(1180px,calc(100% - 44px));margin:0 auto;padding:95px 0 115px}
+.detailArticle h2{font-size:clamp(34px,4vw,52px);line-height:1.08;letter-spacing:-2px;margin:0 0 32px}
+.detailText{font-size:18px;line-height:1.9;color:#596a75;max-width:760px}
+.detailText p{margin:0 0 25px}
+.detailContact{align-self:start;position:sticky;top:110px;padding:28px;border:1px solid #e2e8eb;border-radius:17px;background:#f7f9fa}
+.detailContact h3{font-size:25px;line-height:1.2;margin:0 0 12px}
+.detailContact p{font-size:14px;line-height:1.7;color:#71808a;margin:0 0 20px}
+.detailWaBtn{width:100%;background:#17384d;color:#fff;margin-bottom:16px}
+.detailPhone{display:grid;gap:5px;padding-top:17px;border-top:1px solid #dde4e8}
+.detailPhone span{font-size:11px;color:#81909a;text-transform:uppercase;letter-spacing:1px}
+.detailPhone strong{font-size:17px}
+
+@media(max-width:900px){
+  .detailHero{min-height:520px}
+  .detailContentSection{grid-template-columns:1fr;gap:40px;padding-top:65px}
+  .detailContact{position:static}
+}
+@media(max-width:600px){
+  .serviceDetailMain{padding-top:68px}
+  .detailHero{min-height:500px}
+  .detailHeroContent{width:calc(100% - 36px);padding-bottom:48px}
+  .detailHeroContent h1{letter-spacing:-2px}
+  .detailContentSection{width:calc(100% - 36px);padding-bottom:75px}
+}
