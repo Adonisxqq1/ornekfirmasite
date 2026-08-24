@@ -56,3 +56,9 @@ Not: Render'ın normal dosya sistemi kalıcı değildir. Admin panelinden yükle
   - Detay sayfası üst görseli
   - Detay sayfası uzun açıklaması
   düzenlenebilir.
+
+
+## v4.1 - Logo boyutu
+- Üst menüdeki logo masaüstünde belirgin şekilde büyütüldü.
+- Mobil logo boyutu da artırıldı.
+- Header yüksekliği, menü ve hizmet detay sayfası boşlukları yeni logo boyutuna göre dengelendi.
