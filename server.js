@@ -124,6 +124,7 @@ app.post("/admin/save", auth, siteUpload.fields([
   content.aboutText = b.aboutText || "";
   content.phone = b.phone || "";
   content.email = b.email || "";
+  content.jobRecipient = b.jobRecipient || content.jobRecipient || content.email || "";
   content.address = b.address || "";
   content.whatsapp = b.whatsapp || "";
 
@@ -184,7 +185,7 @@ app.post("/job-application", (req, res) => {
       }
 
       const content = getContent();
-      const recipient = process.env.JOB_RECIPIENT || content.email || process.env.SMTP_USER;
+      const recipient = content.jobRecipient || process.env.JOB_RECIPIENT || content.email || process.env.SMTP_USER;
       const fromAddress = process.env.MAIL_FROM || process.env.SMTP_USER;
 
       await transporter.sendMail({
